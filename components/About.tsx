@@ -44,7 +44,7 @@ export default function About() {
   const { about, skills } = portfolioData
 
   return (
-    <section id="about" className="relative py-20 px-4 sm:px-6">
+    <section id="about" className="relative py-16 px-4 sm:px-6">
       <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
@@ -103,7 +103,7 @@ export default function About() {
             <div className="glass rounded-2xl p-6 sm:p-8 h-full">
               <h3 className="text-lg font-semibold text-white mb-6">Education</h3>
               <div className="space-y-0">
-                {[...about.education].reverse().map((edu, i) => (
+                {about.education.map((edu, i) => (
                   <div key={i}>
                     <div className="flex items-start gap-3 sm:gap-4 p-4 rounded-xl bg-white/[0.02]">
                       <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">

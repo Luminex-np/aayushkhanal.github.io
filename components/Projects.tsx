@@ -79,7 +79,7 @@ export default function Projects() {
             <div className="grid sm:grid-cols-2 gap-4">
               {portfolioData.miscellaneous.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.1}>
-                  <div className="glass rounded-xl p-5 glass-hover h-full">
+                  <div className="glass rounded-xl p-5 h-full">
                     <p className="text-white font-medium text-sm">{item.title}</p>
                     <p className="text-white/40 text-xs mt-1">{item.description}</p>
                     <p className="text-white/20 text-xs mt-2">{item.period}</p>

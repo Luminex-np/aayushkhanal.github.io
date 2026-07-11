@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
-import Nebula from './Nebula'
+
 
 function FloatingShape({ className, delay, style }: { className: string; delay: number; style?: React.CSSProperties }) {
   return (
@@ -46,8 +46,6 @@ export default function Hero() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/8 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       </motion.div>
-
-      <Nebula />
 
       <FloatingShape
         className="top-[15%] left-[10%] w-16 h-16 border border-accent/10 rounded-lg"

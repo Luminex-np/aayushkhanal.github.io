@@ -9,7 +9,7 @@ export default function Experience() {
   const [selected, setSelected] = useState<number | null>(null)
 
   return (
-    <section id="experience" className="relative py-20 px-4 sm:px-6">
+    <section id="experience" className="relative py-16 px-4 sm:px-6">
       <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>

@@ -41,7 +41,7 @@ export const portfolioData = {
     technical: ['Computational Fluid Dynamics Simulation', 'Aerodynamic Design', 'System Design & Prototyping'],
     cfd: ['ANSYS FLUENT', 'SU2', 'OpenFOAM'],
     design: ['CATIA V5', 'SOLIDWORKS', 'Pointwise', 'XFLR5', 'Plane Maker (X-Plane 12)', 'OpenVSP'],
-    programming: ['MATLAB', 'Arduino'],
+    programming: ['MATLAB', 'Python', 'Arduino'],
     tools: ['LaTeX', 'MS Office', 'Inkscape'],
     soft: ['Problem Solving', 'Team Collaboration', 'Project Management', 'Adaptability'],
   },
