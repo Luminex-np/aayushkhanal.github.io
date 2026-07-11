@@ -2,25 +2,26 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 
-interface Project {
-  title: string
-  tools: string[]
+interface Experience {
+  role: string
+  company: string
   period: string
+  location: string
   points: string[]
-  videoPlaceholder?: boolean
+  tools: string[]
   images?: string[]
 }
 
 interface Props {
-  project: Project
+  experience: Experience
   onClose: () => void
 }
 
 const BASE_PATH = '/aayushkhanal.github.io'
 
-export default function ProjectModal({ project, onClose }: Props) {
+export default function ExperienceModal({ experience, onClose }: Props) {
   const [currentImage, setCurrentImage] = useState(0)
-  const images = project.images || []
+  const images = experience.images || []
   const hasImages = images.length > 0
 
   useEffect(() => {
@@ -66,19 +67,22 @@ export default function ProjectModal({ project, onClose }: Props) {
         </button>
 
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs text-white/30 font-mono">{project.period}</span>
+          <span className="text-xs text-white/30 font-mono">{experience.period}</span>
+          <span className="text-white/20">·</span>
+          <span className="text-xs text-white/30 font-mono">{experience.location}</span>
         </div>
 
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 pr-8">
-          {project.title}
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-1 pr-8">
+          {experience.role}
         </h2>
+        <p className="text-accent text-sm mb-6">{experience.company}</p>
 
         <div className="mb-6 aspect-video glass rounded-xl relative overflow-hidden">
           {hasImages ? (
             <>
               <img
                 src={`${BASE_PATH}/images/projects/${images[currentImage]}`}
-                alt={`${project.title} - ${currentImage + 1}`}
+                alt={`${experience.role} - ${currentImage + 1}`}
                 className="w-full h-full object-cover"
               />
               {images.length > 1 && (
@@ -134,7 +138,7 @@ export default function ProjectModal({ project, onClose }: Props) {
         </div>
 
         <ul className="space-y-3 mb-6">
-          {project.points.map((point, i) => (
+          {experience.points.map((point, i) => (
             <li key={i} className="flex gap-3 text-sm text-white/60 leading-relaxed">
               <span className="text-accent mt-1.5 shrink-0">
                 <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
@@ -147,7 +151,7 @@ export default function ProjectModal({ project, onClose }: Props) {
         </ul>
 
         <div className="flex flex-wrap gap-2">
-          {project.tools.map((tool) => (
+          {experience.tools.map((tool) => (
             <span
               key={tool}
               className="px-3 py-1 bg-accent/5 border border-accent/10 rounded-lg text-xs text-accent/80"
