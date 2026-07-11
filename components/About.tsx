@@ -1,15 +1,16 @@
-import { motion } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
 import ScrollReveal from './ScrollReveal'
+import SectionDivider from './SectionDivider'
 
 export default function About() {
   const { about, skills } = portfolioData
 
   return (
     <section id="about" className="relative py-24 px-4 sm:px-6">
+      <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="text-accent font-mono text-sm mb-2 tracking-widest">ABOUT</p>
+          <p className="text-accent font-mono text-sm mb-2 tracking-[0.2em]">ABOUT</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
             More <span className="text-gradient">About Me</span>
           </h2>
@@ -17,7 +18,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <ScrollReveal>
-            <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
+            <div className="glass rounded-2xl p-6 sm:p-8 space-y-4 h-full">
               {about.bio.map((paragraph, i) => (
                 <p key={i} className="text-white/60 leading-relaxed text-sm sm:text-base">
                   {paragraph}
@@ -61,7 +62,7 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="glass rounded-2xl p-6 sm:p-8">
+            <div className="glass rounded-2xl p-6 sm:p-8 h-full">
               <h3 className="text-lg font-semibold text-white mb-6">Education</h3>
               <div className="space-y-6">
                 {about.education.map((edu, i) => (
@@ -101,7 +102,7 @@ export default function About() {
                   key={i}
                   className="flex items-center gap-3 text-sm text-white/60"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent/50" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent/50 shrink-0" />
                   {cert.link && cert.link !== '#' ? (
                     <a href={cert.link} className="hover:text-accent transition-colors">
                       {cert.name}
@@ -126,7 +127,7 @@ export default function About() {
 function SkillCard({ title, items }: { title: string; items: string[] }) {
   return (
     <ScrollReveal>
-      <div className="glass rounded-2xl p-5 glass-hover">
+      <div className="glass rounded-2xl p-5 glass-hover h-full">
         <h4 className="text-accent font-mono text-xs tracking-widest mb-3">{title}</h4>
         <div className="flex flex-wrap gap-2">
           {items.map((item) => (

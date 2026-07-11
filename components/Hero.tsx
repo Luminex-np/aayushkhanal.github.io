@@ -2,6 +2,48 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
 
+function OrbitalRing({ size, rotation, delay, reverse }: { size: number; rotation: number; delay: number; reverse?: boolean }) {
+  return (
+    <motion.div
+      className="absolute rounded-full border border-accent/10"
+      style={{
+        width: size,
+        height: size,
+        marginLeft: -size / 2,
+        marginTop: -size / 2,
+        top: '50%',
+        left: '50%',
+      }}
+      animate={{ rotate: reverse ? -360 : 360 }}
+      transition={{ duration: 20 + delay, repeat: Infinity, ease: 'linear' }}
+    >
+      <div
+        className="absolute w-2 h-2 rounded-full bg-accent/40"
+        style={{
+          top: '50%',
+          left: '50%',
+          marginLeft: -4,
+          marginTop: -size / 2 + 1,
+        }}
+      />
+    </motion.div>
+  )
+}
+
+function FloatingShape({ className, delay }: { className: string; delay: number }) {
+  return (
+    <motion.div
+      className={`absolute ${className}`}
+      animate={{
+        y: [0, -30, 0],
+        rotate: [0, 10, 0],
+        opacity: [0.3, 0.6, 0.3],
+      }}
+      transition={{ duration: 6 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
+    />
+  )
+}
+
 export default function Hero() {
   const [displayed, setDisplayed] = useState('')
   const fullTitle = portfolioData.title
@@ -22,9 +64,34 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-[#0a0a0f]" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/8 via-transparent to-[#0a0a0f]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/8 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       </div>
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <OrbitalRing size={600} rotation={0} delay={0} />
+        <OrbitalRing size={450} rotation={45} delay={2} reverse />
+        <OrbitalRing size={300} rotation={90} delay={4} />
+      </div>
+
+      <FloatingShape
+        className="top-[15%] left-[10%] w-16 h-16 border border-accent/10 rounded-lg"
+        delay={0}
+      />
+      <FloatingShape
+        className="top-[25%] right-[12%] w-12 h-12 border border-accent/10 rounded-full"
+        delay={1.5}
+      />
+      <FloatingShape
+        className="bottom-[20%] left-[15%] w-10 h-10 border border-accent/10"
+        style={{ transform: 'rotate(45deg)' }}
+        delay={3}
+      />
+      <FloatingShape
+        className="bottom-[30%] right-[10%] w-14 h-14 border border-accent/10 rounded-lg"
+        delay={2.5}
+      />
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <motion.div
@@ -32,7 +99,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <p className="text-accent font-mono text-sm sm:text-base mb-4 tracking-widest">
+          <p className="text-accent font-mono text-sm sm:text-base mb-4 tracking-[0.2em]">
             {portfolioData.tagline}
           </p>
         </motion.div>
@@ -41,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tight"
+          className="text-5xl sm:text-7xl md:text-8xl font-bold mb-4 tracking-tight"
         >
           <span className="text-white">{portfolioData.name.split(' ')[0]}</span>{' '}
           <span className="text-gradient">{portfolioData.name.split(' ').slice(1).join(' ')}</span>
@@ -78,7 +145,7 @@ export default function Hero() {
             onClick={() =>
               document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
             }
-            className="px-6 py-3 bg-accent/10 border border-accent/30 text-accent rounded-xl font-medium text-sm hover:bg-accent/20 hover:border-accent/50 transition-all duration-300"
+            className="group px-6 py-3 bg-accent/10 border border-accent/30 text-accent rounded-xl font-medium text-sm hover:bg-accent/20 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition-all duration-300"
           >
             View Projects
           </button>
@@ -96,7 +163,7 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <div className="w-5 h-8 border-2 border-white/20 rounded-full flex items-start justify-center p-1.5">
           <div className="w-1 h-2 bg-accent rounded-full animate-bounce" />

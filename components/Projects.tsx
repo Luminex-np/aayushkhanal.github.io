@@ -3,15 +3,17 @@ import { AnimatePresence } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
 import ScrollReveal from './ScrollReveal'
 import ProjectModal from './ProjectModal'
+import SectionDivider from './SectionDivider'
 
 export default function Projects() {
   const [selected, setSelected] = useState<number | null>(null)
 
   return (
     <section id="projects" className="relative py-24 px-4 sm:px-6">
+      <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="text-accent font-mono text-sm mb-2 tracking-widest">PROJECTS</p>
+          <p className="text-accent font-mono text-sm mb-2 tracking-[0.2em]">PROJECTS</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
             Featured <span className="text-gradient">Projects</span>
           </h2>
@@ -22,16 +24,16 @@ export default function Projects() {
             <ScrollReveal key={i} delay={i * 0.1}>
               <button
                 onClick={() => setSelected(i)}
-                className="glass rounded-2xl p-5 sm:p-6 glass-hover text-left w-full"
+                className="glass rounded-2xl p-5 sm:p-6 glass-hover text-left w-full h-full flex flex-col"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 rounded-full bg-accent/60" />
+                  <div className="w-2 h-2 rounded-full bg-accent/60 shrink-0" />
                   <span className="text-xs text-white/30 font-mono">{project.period}</span>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-white mb-2 leading-snug">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-2 leading-snug min-h-[3rem]">
                   {project.title}
                 </h3>
-                <ul className="space-y-1.5 mb-4">
+                <ul className="space-y-1.5 mb-4 flex-1">
                   {project.points.slice(0, 2).map((point, j) => (
                     <li key={j} className="text-xs sm:text-sm text-white/40 leading-relaxed line-clamp-2">
                       {point}
