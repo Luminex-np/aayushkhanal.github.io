@@ -13,7 +13,6 @@ export default function Experience() {
       <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="text-accent font-mono text-sm mb-2 tracking-[0.2em]">EXPERIENCE</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10">
             <span className="text-gradient">Experience</span>
           </h2>

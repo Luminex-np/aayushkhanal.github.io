@@ -15,7 +15,7 @@ export default function Projects() {
         <ScrollReveal>
           <p className="text-accent font-mono text-sm mb-2 tracking-[0.2em]">PROJECTS</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
-            Featured <span className="text-gradient">Projects</span>
+            <span className="text-gradient">Featured</span>
           </h2>
         </ScrollReveal>
 
@@ -72,6 +72,23 @@ export default function Projects() {
             </ScrollReveal>
           ))}
         </div>
+
+        {portfolioData.miscellaneous.length > 0 && (
+          <>
+            <h3 className="text-lg font-semibold text-white mt-12 mb-4">Miscellaneous</h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {portfolioData.miscellaneous.map((item, i) => (
+                <ScrollReveal key={i} delay={i * 0.1}>
+                  <div className="glass rounded-xl p-5 glass-hover h-full">
+                    <p className="text-white font-medium text-sm">{item.title}</p>
+                    <p className="text-white/40 text-xs mt-1">{item.description}</p>
+                    <p className="text-white/20 text-xs mt-2">{item.period}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       <AnimatePresence>

@@ -3,7 +3,6 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Experience from '../components/Experience'
 import Projects from '../components/Projects'
-import Miscellaneous from '../components/Miscellaneous'
 import Footer from '../components/Footer'
 import Starfield from '../components/Starfield'
 import ScrollProgress from '../components/ScrollProgress'
@@ -19,7 +18,6 @@ export default function Home() {
       <About />
       <Experience />
       <Projects />
-      <Miscellaneous />
       <Footer />
       <BackToTop />
     </main>
