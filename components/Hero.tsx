@@ -30,9 +30,10 @@ function OrbitalRing({ size, rotation, delay, reverse }: { size: number; rotatio
   )
 }
 
-function FloatingShape({ className, delay }: { className: string; delay: number }) {
+function FloatingShape({ className, delay, style }: { className: string; delay: number; style?: React.CSSProperties }) {
   return (
     <motion.div
+      style={style}
       className={`absolute ${className}`}
       animate={{
         y: [0, -30, 0],
