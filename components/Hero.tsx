@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
 
-function OrbitalRing({ size, rotation, delay, reverse }: { size: number; rotation: number; delay: number; reverse?: boolean }) {
+function OrbitalRing({ size, delay, reverse }: { size: number; delay: number; reverse?: boolean }) {
   return (
     <motion.div
       className="absolute rounded-full border border-accent/10"
@@ -48,6 +48,9 @@ function FloatingShape({ className, delay, style }: { className: string; delay: 
 export default function Hero() {
   const [displayed, setDisplayed] = useState('')
   const fullTitle = portfolioData.title
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const { scrollY } = useScroll()
+  const bgY = useTransform(scrollY, [0, 600], [0, 150])
 
   useEffect(() => {
     let i = 0
@@ -61,19 +64,20 @@ export default function Hero() {
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0">
+      <motion.div style={{ y: bgY }} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/8 via-transparent to-[#0a0a0f]" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/8 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
-      </div>
+      </motion.div>
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <OrbitalRing size={600} rotation={0} delay={0} />
-        <OrbitalRing size={450} rotation={45} delay={2} reverse />
-        <OrbitalRing size={300} rotation={90} delay={4} />
+        <OrbitalRing size={600} delay={0} />
+        <OrbitalRing size={450} delay={2} reverse />
+        <OrbitalRing size={300} delay={4} />
       </div>
 
       <FloatingShape

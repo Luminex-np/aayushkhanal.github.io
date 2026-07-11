@@ -1,6 +1,9 @@
 import { portfolioData } from '../data/portfolio'
 import ScrollReveal from './ScrollReveal'
 import SectionDivider from './SectionDivider'
+import CvButton from './CvButton'
+import SkillBar from './SkillBar'
+import ContactForm from './ContactForm'
 
 export default function About() {
   const { about, skills } = portfolioData
@@ -38,7 +41,7 @@ export default function About() {
                   <span className="text-accent">Phone:</span> {about.phone}
                 </p>
               </div>
-              <div className="flex gap-3 pt-2">
+              <div className="flex gap-3 pt-2 flex-wrap">
                 <a
                   href={about.linkedin}
                   target="_blank"
@@ -57,6 +60,7 @@ export default function About() {
                     GitHub
                   </a>
                 )}
+                <CvButton />
               </div>
             </div>
           </ScrollReveal>
@@ -84,6 +88,17 @@ export default function About() {
           </ScrollReveal>
         </div>
 
+        <ScrollReveal>
+          <h3 className="text-xl font-semibold text-white mb-6">Core Skills</h3>
+        </ScrollReveal>
+        <div className="grid sm:grid-cols-2 gap-6 mb-16">
+          {Object.entries(portfolioData.skillLevels).slice(0, 8).map(([name, level], i) => (
+            <ScrollReveal key={name} delay={i * 0.05}>
+              <SkillBar name={name} level={level} delay={i * 0.05} />
+            </ScrollReveal>
+          ))}
+        </div>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
           <SkillCard title="Technical Skills" items={skills.technical} />
           <SkillCard title="CFD Tools" items={skills.cfd} />
@@ -103,20 +118,24 @@ export default function About() {
                   className="flex items-center gap-3 text-sm text-white/60"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-accent/50 shrink-0" />
-                  {cert.link && cert.link !== '#' ? (
-                    <a href={cert.link} className="hover:text-accent transition-colors">
-                      {cert.name}
-                    </a>
-                  ) : (
-                    <span>
-                      {cert.name}
-                      {cert.id && <span className="text-white/30"> — {cert.id}</span>}
-                      {cert.detail && <span className="text-white/30"> — {cert.detail}</span>}
-                    </span>
-                  )}
+                  <span>
+                    {cert.name}
+                    {cert.id && <span className="text-white/30"> — {cert.id}</span>}
+                    {cert.detail && <span className="text-white/30"> — {cert.detail}</span>}
+                  </span>
                 </div>
               ))}
             </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="glass rounded-2xl p-6 sm:p-8 mt-8">
+            <h3 className="text-lg font-semibold text-white mb-4">Get In Touch</h3>
+            <p className="text-white/40 text-sm mb-4">
+              Have a question or want to work together? Send me a message.
+            </p>
+            <ContactForm />
           </div>
         </ScrollReveal>
       </div>
