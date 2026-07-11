@@ -15,7 +15,7 @@ export default function Experience() {
         <ScrollReveal>
           <p className="text-accent font-mono text-sm mb-2 tracking-[0.2em]">EXPERIENCE</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10">
-            Where I&apos;ve <span className="text-gradient">Worked</span>
+            <span className="text-gradient">Experience</span>
           </h2>
         </ScrollReveal>
 

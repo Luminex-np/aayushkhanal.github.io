@@ -1,34 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
-
-function OrbitalRing({ size, delay, reverse }: { size: number; delay: number; reverse?: boolean }) {
-  return (
-    <motion.div
-      className="absolute rounded-full border border-accent/10"
-      style={{
-        width: size,
-        height: size,
-        marginLeft: -size / 2,
-        marginTop: -size / 2,
-        top: '50%',
-        left: '50%',
-      }}
-      animate={{ rotate: reverse ? -360 : 360 }}
-      transition={{ duration: 20 + delay, repeat: Infinity, ease: 'linear' }}
-    >
-      <div
-        className="absolute w-2 h-2 rounded-full bg-accent/40"
-        style={{
-          top: '50%',
-          left: '50%',
-          marginLeft: -4,
-          marginTop: -size / 2 + 1,
-        }}
-      />
-    </motion.div>
-  )
-}
+import Streamlines from './Streamlines'
 
 function FloatingShape({ className, delay, style }: { className: string; delay: number; style?: React.CSSProperties }) {
   return (
@@ -74,11 +47,7 @@ export default function Hero() {
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       </motion.div>
 
-      <div className="absolute inset-0 flex items-center justify-center">
-        <OrbitalRing size={600} delay={0} />
-        <OrbitalRing size={450} delay={2} reverse />
-        <OrbitalRing size={300} delay={4} />
-      </div>
+      <Streamlines />
 
       <FloatingShape
         className="top-[15%] left-[10%] w-16 h-16 border border-accent/10 rounded-lg"

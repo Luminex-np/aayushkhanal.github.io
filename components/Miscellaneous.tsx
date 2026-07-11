@@ -6,7 +6,7 @@ export default function Miscellaneous() {
   if (portfolioData.miscellaneous.length === 0) return null
 
   return (
-    <section className="relative py-20 px-4 sm:px-6">
+    <section className="relative py-12 px-4 sm:px-6">
       <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>

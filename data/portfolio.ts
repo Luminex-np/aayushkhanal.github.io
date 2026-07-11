@@ -56,6 +56,7 @@ export const portfolioData = {
         'Investigated the effect of drag reduction with the addition of conventional aerospike in bluff body using SU2 and ANSYS FLUENT solvers.',
         'Experimentally verified the shock angles obtained at Mach 2.43 using schlieren images.',
       ],
+      images: [],
     },
   ],
   projects: [
@@ -143,9 +144,9 @@ export const portfolioData = {
     },
   ],
   certificates: [
-    { name: 'ANSYS Workshop' },
-    { name: 'Aerodynamic Shape Optimization' },
-    { name: 'NEPAL ENGINEERING COUNCIL', id: '95265' },
+    { name: 'ANSYS Workshop', url: 'https://drive.google.com/file/d/1xIi-eW9xpsjxxeNC8-Q8xSYX89GOuopz/view?usp=sharing' },
+    { name: 'Aerodynamic Shape Optimization', url: 'https://drive.google.com/file/d/1QY_umFdfy3uxuJDETyGmRo6V-OEmlN45/view?usp=sharing' },
+    { name: 'NEPAL ENGINEERING COUNCIL', id: '95265', url: 'https://drive.google.com/file/d/1YdDENmwPNzb0Pmqn4Ka80AxJtCY5knv-/view?usp=drive_link' },
     { name: 'IELTS', detail: 'O: 7.5, R: 8, L: 8, W: 6.5, S: 7.5' },
   ],
 }

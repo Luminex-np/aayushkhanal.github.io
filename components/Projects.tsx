@@ -9,7 +9,7 @@ export default function Projects() {
   const [selected, setSelected] = useState<number | null>(null)
 
   return (
-    <section id="projects" className="relative py-24 px-4 sm:px-6">
+    <section id="projects" className="relative py-12 px-4 sm:px-6">
       <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
