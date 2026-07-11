@@ -1,9 +1,6 @@
-import { portfolioData } from '../data/portfolio'
 import ScrollReveal from './ScrollReveal'
 import SectionDivider from './SectionDivider'
-import CvButton from './CvButton'
-import SkillBar from './SkillBar'
-import ContactForm from './ContactForm'
+import { portfolioData } from '../data/portfolio'
 
 export default function About() {
   const { about, skills } = portfolioData
@@ -60,7 +57,6 @@ export default function About() {
                     GitHub
                   </a>
                 )}
-                <CvButton />
               </div>
             </div>
           </ScrollReveal>
@@ -68,35 +64,29 @@ export default function About() {
           <ScrollReveal delay={0.2}>
             <div className="glass rounded-2xl p-6 sm:p-8 h-full">
               <h3 className="text-lg font-semibold text-white mb-6">Education</h3>
-              <div className="space-y-6">
+              <div className="space-y-0">
                 {about.education.map((edu, i) => (
-                  <div key={i} className="relative pl-6 border-l border-white/10">
-                    <div className="absolute left-0 top-1 w-2 h-2 -translate-x-[5px] rounded-full bg-accent" />
-                    <p className="text-white font-medium text-sm sm:text-base">{edu.degree}</p>
-                    <p className="text-white/50 text-xs sm:text-sm mt-0.5">{edu.school}</p>
-                    <div className="flex gap-3 mt-1 text-xs text-white/30">
-                      <span>{edu.period}</span>
-                      <span>{edu.location}</span>
-                      {edu.percentage && <span>{edu.percentage}</span>}
-                      {edu.cgpa && <span>CGPA: {edu.cgpa}</span>}
-                      {edu.gpa && <span>GPA: {edu.gpa}</span>}
+                  <div key={i}>
+                    <div className="relative pl-6 border-l border-white/10">
+                      <div className="absolute left-0 top-1 w-2 h-2 -translate-x-[5px] rounded-full bg-accent" />
+                      <p className="text-white font-medium text-sm sm:text-base">{edu.degree}</p>
+                      <p className="text-white/50 text-xs sm:text-sm mt-0.5">{edu.school}</p>
+                      <div className="flex gap-3 mt-1 text-xs text-white/30">
+                        <span>{edu.period}</span>
+                        <span>{edu.location}</span>
+                        {edu.percentage && <span>{edu.percentage}</span>}
+                        {edu.cgpa && <span>CGPA: {edu.cgpa}</span>}
+                        {edu.gpa && <span>GPA: {edu.gpa}</span>}
+                      </div>
                     </div>
+                    {i < about.education.length - 1 && (
+                      <div className="border-b border-white/5 my-5 ml-6" />
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </ScrollReveal>
-        </div>
-
-        <ScrollReveal>
-          <h3 className="text-xl font-semibold text-white mb-6">Core Skills</h3>
-        </ScrollReveal>
-        <div className="grid sm:grid-cols-2 gap-6 mb-16">
-          {Object.entries(portfolioData.skillLevels).slice(0, 8).map(([name, level], i) => (
-            <ScrollReveal key={name} delay={i * 0.05}>
-              <SkillBar name={name} level={level} delay={i * 0.05} />
-            </ScrollReveal>
-          ))}
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
@@ -128,16 +118,6 @@ export default function About() {
             </div>
           </div>
         </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="glass rounded-2xl p-6 sm:p-8 mt-8">
-            <h3 className="text-lg font-semibold text-white mb-4">Get In Touch</h3>
-            <p className="text-white/40 text-sm mb-4">
-              Have a question or want to work together? Send me a message.
-            </p>
-            <ContactForm />
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   )
@@ -145,20 +125,18 @@ export default function About() {
 
 function SkillCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <ScrollReveal>
-      <div className="glass rounded-2xl p-5 glass-hover h-full">
-        <h4 className="text-accent font-mono text-xs tracking-widest mb-3">{title}</h4>
-        <div className="flex flex-wrap gap-2">
-          {items.map((item) => (
-            <span
-              key={item}
-              className="px-3 py-1.5 bg-white/5 rounded-lg text-xs text-white/60 border border-white/5"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+    <div className="glass rounded-2xl p-5 glass-hover h-full">
+      <h4 className="text-accent font-mono text-xs tracking-widest mb-3">{title}</h4>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item) => (
+          <span
+            key={item}
+            className="px-3 py-1.5 bg-white/5 rounded-lg text-xs text-white/60 border border-white/5"
+          >
+            {item}
+          </span>
+        ))}
       </div>
-    </ScrollReveal>
+    </div>
   )
 }

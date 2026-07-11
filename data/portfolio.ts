@@ -142,18 +142,4 @@ export const portfolioData = {
     { name: 'NEPAL ENGINEERING COUNCIL', id: '95265' },
     { name: 'IELTS', detail: 'O: 7.5, R: 8, L: 8, W: 6.5, S: 7.5' },
   ],
-  skillLevels: {
-    'Computational Fluid Dynamics Simulation': 90,
-    'Aerodynamic Design': 85,
-    'System Design & Prototyping': 80,
-    'ANSYS FLUENT': 90,
-    'SU2': 75,
-    'OpenFOAM': 70,
-    'CATIA V5': 85,
-    'SOLIDWORKS': 75,
-    'Pointwise': 80,
-    'XFLR5': 85,
-    'MATLAB': 80,
-    'Arduino': 60,
-  },
 }

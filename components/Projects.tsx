@@ -24,7 +24,7 @@ export default function Projects() {
             <ScrollReveal key={i} delay={i * 0.1}>
               <button
                 onClick={() => setSelected(i)}
-                className="glass rounded-2xl p-5 sm:p-6 glass-hover text-left w-full h-full flex flex-col"
+                className="glass rounded-2xl p-5 sm:p-6 glass-hover text-left w-full h-full flex flex-col group relative overflow-hidden"
               >
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-2 h-2 rounded-full bg-accent/60 shrink-0" />
@@ -61,6 +61,13 @@ export default function Projects() {
                     Click to view details
                   </div>
                 )}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10 rounded-2xl">
+                  <div className="w-14 h-14 rounded-full bg-accent/20 backdrop-blur-sm flex items-center justify-center border border-accent/30">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent ml-0.5">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </div>
+                </div>
               </button>
             </ScrollReveal>
           ))}

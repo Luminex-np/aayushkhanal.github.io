@@ -1,8 +1,13 @@
+import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { portfolioData } from '../data/portfolio'
 import ScrollReveal from './ScrollReveal'
 import SectionDivider from './SectionDivider'
+import ExperienceModal from './ExperienceModal'
 
 export default function Experience() {
+  const [selected, setSelected] = useState<number | null>(null)
+
   return (
     <section id="experience" className="relative py-24 px-4 sm:px-6">
       <SectionDivider />
@@ -17,7 +22,10 @@ export default function Experience() {
         <div className="space-y-8">
           {portfolioData.experience.map((exp, i) => (
             <ScrollReveal key={i} delay={i * 0.15}>
-              <div className="glass rounded-2xl p-6 sm:p-8 glass-hover">
+              <button
+                onClick={() => setSelected(i)}
+                className="glass rounded-2xl p-6 sm:p-8 glass-hover text-left w-full"
+              >
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white">
@@ -32,7 +40,7 @@ export default function Experience() {
                 </div>
 
                 <ul className="space-y-2 mb-4">
-                  {exp.points.map((point, j) => (
+                  {exp.points.slice(0, 2).map((point, j) => (
                     <li key={j} className="flex gap-3 text-sm text-white/50 leading-relaxed">
                       <span className="text-accent mt-1.5 shrink-0">
                         <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
@@ -42,6 +50,9 @@ export default function Experience() {
                       {point}
                     </li>
                   ))}
+                  {exp.points.length > 2 && (
+                    <li className="text-xs text-accent/60">+{exp.points.length - 2} more</li>
+                  )}
                 </ul>
 
                 <div className="flex flex-wrap gap-2">
@@ -54,7 +65,7 @@ export default function Experience() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </button>
             </ScrollReveal>
           ))}
         </div>
@@ -80,6 +91,15 @@ export default function Experience() {
           </>
         )}
       </div>
+
+      <AnimatePresence>
+        {selected !== null && (
+          <ExperienceModal
+            experience={portfolioData.experience[selected]}
+            onClose={() => setSelected(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
