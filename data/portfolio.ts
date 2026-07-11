@@ -5,8 +5,8 @@ export const portfolioData = {
   heroSummary: 'A passionate aerospace engineering student dedicated to aerodynamics, research, design, and propulsion. Eager to solve complex problems and contribute to the aerospace industry.',
   about: {
     bio: [
-      'An aerospace engineering student passionate about aerodynamics, research, design, and propulsion offering analytical skills to solve complex engineering problems. Eager to gain hands-on experience with professionals and grow professionally within the aerospace industry.',
-      'With a strong foundation in Computational Fluid Dynamics, aerodynamic design, and system prototyping, I have worked on diverse projects ranging from subsonic wind tunnels to air-launch vehicle concepts. My experience at IIT Kharagpur involved experimental verification of shock angles using schlieren imaging.',
+      'I am an aerospace engineering graduate from Pulchowk Campus, focused on aerodynamics, CFD, and design. For my undergraduate thesis, I designed and developed a subsonic wind tunnel with an integrated gust generator.',
+      'During my research internship at IIT Kharagpur, I worked on drag reduction analysis using SU2 and ANSYS FLUENT, and validated shock angles experimentally using schlieren imaging at Mach 2.43. I have also worked on air-launch vehicle design and glider development. I use tools like ANSYS FLUENT, CATIA V5, SU2, OpenFOAM, and MATLAB, and I am looking for opportunities where I can contribute to real aerospace projects and keep growing.',
     ],
     location: 'Kathmandu, Nepal',
     email: 'aayushkhanal.official@gmail.com',
@@ -68,6 +68,7 @@ export const portfolioData = {
         'Found the increment in heater wall length increased pressure, velocity, temperature, and heat transfer inside the body.',
       ],
       videoPlaceholder: true,
+      images: [],
     },
     {
       title: 'Development of Subsonic Wind Tunnel with Gust Generator',
@@ -80,6 +81,7 @@ export const portfolioData = {
         'Investigated the effect of design parameters on gust generator performance.',
       ],
       videoPlaceholder: true,
+      images: [],
     },
     {
       title: 'Proposed Modification of B-52H named ATOM for Air-Launch to Orbit',
@@ -92,6 +94,7 @@ export const portfolioData = {
         'Estimated cost of aircraft manufacturing as $141 million with $9.11 million per launch.',
       ],
       videoPlaceholder: true,
+      images: [],
     },
     {
       title: 'Investigation of Drag on Geometric Bodies',
@@ -102,6 +105,7 @@ export const portfolioData = {
         'Found that the rectangle had the highest drag coefficient, airfoil the lowest.',
       ],
       videoPlaceholder: true,
+      images: [],
     },
     {
       title: 'Investigation of Airfoil Thickness at Low Reynolds Number',
@@ -112,6 +116,7 @@ export const portfolioData = {
         'Found that 100% thickness offered the best balance for optimizing aerodynamic performance.',
       ],
       videoPlaceholder: true,
+      images: [],
     },
     {
       title: 'Design and Development of a Glider',
@@ -122,6 +127,7 @@ export const portfolioData = {
         'Ensured optimal center of gravity placement for stable flight.',
       ],
       videoPlaceholder: true,
+      images: [],
     },
   ],
   miscellaneous: [

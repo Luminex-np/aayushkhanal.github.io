@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 
@@ -7,6 +8,7 @@ interface Project {
   period: string
   points: string[]
   videoPlaceholder?: boolean
+  images?: string[]
 }
 
 interface Props {
@@ -14,18 +16,26 @@ interface Props {
   onClose: () => void
 }
 
+const BASE_PATH = '/aayushkhanal.github.io'
+
 export default function ProjectModal({ project, onClose }: Props) {
+  const [currentImage, setCurrentImage] = useState(0)
+  const images = project.images || []
+  const hasImages = images.length > 0
+
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') setCurrentImage((i) => (i - 1 + images.length) % images.length)
+      if (e.key === 'ArrowRight') setCurrentImage((i) => (i + 1) % images.length)
     }
     window.addEventListener('keydown', handleKey)
     return () => {
       document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKey)
     }
-  }, [onClose])
+  }, [onClose, images.length])
 
   return (
     <motion.div
@@ -48,7 +58,7 @@ export default function ProjectModal({ project, onClose }: Props) {
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/40 hover:text-white transition-all"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/40 hover:text-white transition-all z-20"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 6L6 18M6 6l12 12" />
@@ -63,22 +73,64 @@ export default function ProjectModal({ project, onClose }: Props) {
           {project.title}
         </h2>
 
-        <div className="mb-6 aspect-video glass rounded-xl flex items-center justify-center">
-          <div className="text-center">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              className="text-accent/40 mx-auto mb-3"
-            >
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-            <p className="text-white/30 text-sm">Simulation video placeholder</p>
-            <p className="text-white/20 text-xs mt-1">Drop your .mp4 in public/videos/</p>
-          </div>
+        <div className="mb-6 aspect-video glass rounded-xl relative overflow-hidden">
+          {hasImages ? (
+            <>
+              <img
+                src={`${BASE_PATH}/images/projects/${images[currentImage]}`}
+                alt={`${project.title} - ${currentImage + 1}`}
+                className="w-full h-full object-cover"
+              />
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setCurrentImage((i) => (i - 1 + images.length) % images.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white/60 hover:text-white transition-all"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => setCurrentImage((i) => (i + 1) % images.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white/60 hover:text-white transition-all"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </button>
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    {images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentImage(i)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all ${
+                          i === currentImage ? 'bg-accent w-3' : 'bg-white/20 hover:bg-white/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="text-center">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="text-accent/40 mx-auto mb-3"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <p className="text-white/30 text-sm">Screenshot coming soon</p>
+              </div>
+            </div>
+          )}
         </div>
 
         <ul className="space-y-3 mb-6">

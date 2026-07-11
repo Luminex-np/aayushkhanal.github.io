@@ -164,16 +164,6 @@ export default function Hero() {
           </button>
         </motion.div>
       </div>
-
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <div className="w-5 h-8 border-2 border-white/20 rounded-full flex items-start justify-center p-1.5">
-          <div className="w-1 h-2 bg-accent rounded-full animate-bounce" />
-        </div>
-      </motion.div>
     </section>
   )
 }

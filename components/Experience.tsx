@@ -9,12 +9,12 @@ export default function Experience() {
   const [selected, setSelected] = useState<number | null>(null)
 
   return (
-    <section id="experience" className="relative py-24 px-4 sm:px-6">
+    <section id="experience" className="relative py-20 px-4 sm:px-6">
       <SectionDivider />
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <p className="text-accent font-mono text-sm mb-2 tracking-[0.2em]">EXPERIENCE</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10">
             Where I&apos;ve <span className="text-gradient">Worked</span>
           </h2>
         </ScrollReveal>
@@ -69,27 +69,6 @@ export default function Experience() {
             </ScrollReveal>
           ))}
         </div>
-
-        {portfolioData.miscellaneous.length > 0 && (
-          <>
-            <ScrollReveal>
-              <h3 className="text-xl font-semibold text-white mt-16 mb-6">
-                Miscellaneous
-              </h3>
-            </ScrollReveal>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {portfolioData.miscellaneous.map((item, i) => (
-                <ScrollReveal key={i} delay={i * 0.1}>
-                  <div className="glass rounded-xl p-5 glass-hover h-full">
-                    <p className="text-white font-medium text-sm">{item.title}</p>
-                    <p className="text-white/40 text-xs mt-1">{item.description}</p>
-                    <p className="text-white/20 text-xs mt-2">{item.period}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </>
-        )}
       </div>
 
       <AnimatePresence>
