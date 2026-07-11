@@ -1,0 +1,145 @@
+export const portfolioData = {
+  name: 'Aayush Khanal',
+  title: 'Aerospace Engineer',
+  tagline: 'Aerodynamics | CFD | Propulsion | Design',
+  heroSummary: 'A passionate aerospace engineering student dedicated to aerodynamics, research, design, and propulsion. Eager to solve complex problems and contribute to the aerospace industry.',
+  about: {
+    bio: [
+      'An aerospace engineering student passionate about aerodynamics, research, design, and propulsion offering analytical skills to solve complex engineering problems. Eager to gain hands-on experience with professionals and grow professionally within the aerospace industry.',
+      'With a strong foundation in Computational Fluid Dynamics, aerodynamic design, and system prototyping, I have worked on diverse projects ranging from subsonic wind tunnels to air-launch vehicle concepts. My experience at IIT Kharagpur involved experimental verification of shock angles using schlieren imaging.',
+    ],
+    location: 'Kathmandu, Nepal',
+    email: 'aayushkhanal.official@gmail.com',
+    phone: '+977-9865187774',
+    linkedin: 'https://www.linkedin.com/in/khanalaayush',
+    github: 'Luminex-np',
+    education: [
+      {
+        degree: 'Bachelor of Aerospace Engineering',
+        school: 'Pulchowk Campus',
+        period: '2021 – 2025',
+        location: 'Lalitpur, Nepal',
+        percentage: '79.84%',
+      },
+      {
+        degree: 'Higher Secondary Education (Grades 11 and 12)',
+        school: 'Aroma College of Applied Science And Management',
+        period: '2017 – 2019',
+        location: 'Chitwan, Nepal',
+        cgpa: '3.65',
+      },
+      {
+        degree: 'Secondary Education Examination',
+        school: 'Shiksha Bikash Higher Secondary School',
+        period: '2016 – 2017',
+        location: 'Chitwan, Nepal',
+        gpa: '3.75',
+      },
+    ],
+  },
+  skills: {
+    technical: ['Computational Fluid Dynamics Simulation', 'Aerodynamic Design', 'System Design & Prototyping'],
+    cfd: ['ANSYS FLUENT', 'SU2', 'OpenFOAM'],
+    design: ['CATIA V5', 'SOLIDWORKS', 'Pointwise', 'XFLR5', 'Plane Maker (X-Plane 12)', 'OpenVSP'],
+    programming: ['MATLAB', 'Arduino'],
+    tools: ['LaTeX', 'MS Office', 'Inkscape'],
+    soft: ['Problem Solving', 'Team Collaboration', 'Project Management', 'Adaptability'],
+  },
+  experience: [
+    {
+      role: 'Research Intern',
+      company: 'Indian Institute of Technology, Kharagpur',
+      period: 'October 2024 – December 2024',
+      location: 'Kharagpur, West Bengal',
+      tools: ['CATIA V5', 'MATLAB', 'Pointwise', 'SU2', 'ANSYS FLUENT'],
+      points: [
+        'Investigated the effect of drag reduction with the addition of conventional aerospike in bluff body using SU2 and ANSYS FLUENT solvers.',
+        'Experimentally verified the shock angles obtained at Mach 2.43 using schlieren images.',
+      ],
+    },
+  ],
+  projects: [
+    {
+      title: 'Addition of Heat Flux in a Closed Cavity',
+      tools: ['OpenFOAM'],
+      period: 'March 2025',
+      points: [
+        'Investigated the effect of varying wall lengths on transient natural convection utilizing buoyantPimpleFoam.',
+        'Found the increment in heater wall length increased pressure, velocity, temperature, and heat transfer inside the body.',
+      ],
+      videoPlaceholder: true,
+    },
+    {
+      title: 'Development of Subsonic Wind Tunnel with Gust Generator',
+      tools: ['CATIA V5', 'MATLAB', 'Pointwise', 'ANSYS FLUENT'],
+      period: 'May 2024 – January 2025',
+      points: [
+        'Designed and developed a subsonic wind tunnel with a contraction ratio of 6:1 and integrated a gust generator using oscillating vanes.',
+        'Achieved 0.88% turbulent intensity with a mean velocity of 8.6 m/s at the test section.',
+        'Developed a smoke visualization setup to observe produced longitudinal gusts.',
+        'Investigated the effect of design parameters on gust generator performance.',
+      ],
+      videoPlaceholder: true,
+    },
+    {
+      title: 'Proposed Modification of B-52H named ATOM for Air-Launch to Orbit',
+      tools: ['XFLR5', 'X-Plane 12', 'MATLAB'],
+      period: 'June 2024 – September 2024',
+      points: [
+        'Optimized for high altitude performance (35,000 – 45,000 ft) with 10 Aspect Ratio and 6 Rolls-Royce Trent XWB-84 engines.',
+        'Designed for cruising speed of Mach 0.86 for 6000 km range with 12,700 kg payload.',
+        'Marked a Cooper-Harper rating of 4 with stable damping characteristics across all modes.',
+        'Estimated cost of aircraft manufacturing as $141 million with $9.11 million per launch.',
+      ],
+      videoPlaceholder: true,
+    },
+    {
+      title: 'Investigation of Drag on Geometric Bodies',
+      tools: ['CATIA V5', 'ANSYS FLUENT'],
+      period: 'June 2024',
+      points: [
+        'Compared the drag coefficients of rectangle, bullet, and airfoil bodies under same conditions.',
+        'Found that the rectangle had the highest drag coefficient, airfoil the lowest.',
+      ],
+      videoPlaceholder: true,
+    },
+    {
+      title: 'Investigation of Airfoil Thickness at Low Reynolds Number',
+      tools: ['CATIA V5', 'ANSYS FLUENT'],
+      period: 'October 2023',
+      points: [
+        'Performed CFD simulations on NACA 0012, 4412, and 4415 with varying thicknesses (50%, 100%, 125%).',
+        'Found that 100% thickness offered the best balance for optimizing aerodynamic performance.',
+      ],
+      videoPlaceholder: true,
+    },
+    {
+      title: 'Design and Development of a Glider',
+      tools: ['XFLR5', 'CNC Foam Cutter'],
+      period: 'January 2022',
+      points: [
+        'Designed a glider with analysis of airfoil Eppler 205 in XFLR5 with 8 Aspect Ratio and 3 meter wingspan.',
+        'Ensured optimal center of gravity placement for stable flight.',
+      ],
+      videoPlaceholder: true,
+    },
+  ],
+  miscellaneous: [
+    {
+      title: 'Designed Lockheed U-2 in Plane Maker',
+      description: 'Performed dynamic stability tests using XFLR5, MATLAB, and X-Plane 12',
+      period: 'January 2024 – March 2024',
+    },
+    {
+      title: 'Scaled F-15 Model for Manufacturing',
+      description: '3D modeling using CATIA V5',
+      period: 'January 2024 – February 2024',
+    },
+  ],
+  certificates: [
+    { name: 'ANSYS Workshop', link: '#' },
+    { name: 'Aerodynamic Shape Optimization', link: '#' },
+    { name: 'NEPAL ENGINEERING COUNCIL', id: '95265' },
+    { name: 'IELTS', detail: 'O: 7.5, R: 8, L: 8, W: 6.5, S: 7.5' },
+  ],
+}
